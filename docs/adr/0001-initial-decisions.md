@@ -17,12 +17,13 @@ The project shows public wildfire information for Spain, Portugal and France. It
 6. **Fogos.pt data.** Use it only after access is granted through its request form, with an individual token sent in the `X-API-Key` header. Show "Fonte: Fogos.pt" with a link. Do not show ads, donation requests, crowdfunding or other funding requests in services that use its data. Do not use it as the only source for emergency decisions. Source: Fogos.pt API terms, sections 3, 4 and 9.
 7. **No automated website logins.** The tools store and check API keys. They do not log in to provider websites with a username and password. Providers' terms usually forbid it, and it would mean storing passwords.
 8. **No credentials in the repository.** Keys live in a local file outside the repository.
+9. **Name: Preventex.** The repository and the project use this name.
 
 ## Open questions
 
 - **Legal host for funding.** Not decided. Options: an existing non-profit association, or a fiscal host.
 - **Attribution clause (AGPL section 7(b)).** Not decided.
-- **Name, project email and GitHub organisation.** Not decided. "fire-platform" is a working name.
+- **Project email and GitHub organisation.** Not decided. The repository is in a personal account for now.
 
 ## Consequences
 

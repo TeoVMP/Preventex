@@ -1,6 +1,6 @@
-# fire-platform (working name)
+# Preventex
 
-An open and auditable platform that collects public wildfire information for Spain, Portugal and France. It shows where the sources agree and where they do not.
+Preventex is an open and auditable platform that collects public wildfire information for Spain, Portugal and France. It shows where the sources agree and where they do not.
 
 **This is not an official alert system. Do not use it for emergency decisions. In an emergency, call 112.**
 
