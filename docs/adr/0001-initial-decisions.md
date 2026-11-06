@@ -1,6 +1,6 @@
 # ADR 0001: Initial decisions
 
-- **Status:** accepted, except the open questions at the end.
+- **Status:** accepted. Decision 3 is amended by [ADR 0002](0002-two-prediction-models.md): the core stays AI-free and the machine-learning companion lives outside it. The open questions at the end remain open.
 - **Date:** 2026-11-05
 
 ## Context
