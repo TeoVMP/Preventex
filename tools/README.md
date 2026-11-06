@@ -17,7 +17,7 @@ python3 tools/apikeys.py check               # tests every key that is set
 |---|---|
 | `init` | Creates the secrets file. It never overwrites an existing file. |
 | `list` | Shows which keys are set (masked) and where to get each one. |
-| `set NAME` | Stores a key. Use `--stdin` to pass the value from another command. |
+| `set NAME` | Stores a key. Use `--stdin` to pass the value from another command. For AEMET keys it checks the format (two dots, minimum length) before storing, and reports the length it received. |
 | `unset NAME` | Removes a key. |
 | `check [PROVIDER]` | Makes one read-only request per provider to test its key. |
 | `login meteofrance` | Gets an OAuth2 token and shows when it expires. The token is not printed. |
@@ -42,4 +42,4 @@ Python 3.9 or newer. No third-party packages.
 
 ## Status
 
-Version 0.1.0. Translations into Spanish, French and Portuguese will follow the project's documentation process.
+Version 0.2.0. Translations into Spanish, French and Portuguese will follow the project's documentation process.

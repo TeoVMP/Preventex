@@ -34,7 +34,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 TIMEOUT_SECONDS = 20
 
 SECRETS_FILE = Path(
@@ -268,17 +268,23 @@ def cmd_set(args: argparse.Namespace) -> int:
         value = sys.stdin.readline().strip()
     else:
         value = getpass.getpass(f"Value for {args.name} (hidden): ").strip()
+    # Some terminals add these markers when pasting; they are not part of any key.
+    value = value.replace("\x1b[200~", "").replace("\x1b[201~", "")
     if not value:
         raise ToolError("empty value, nothing was stored")
-    if args.name == "AEMET_API_KEY" and value.count(".") != 2:
-        print(
-            "Warning: AEMET keys are long strings with two dots (JWT format). "
-            "Check that you copied the whole key."
-        )
+    if args.name == "AEMET_API_KEY":
+        if value.count(".") != 2 or len(value) < 100:
+            raise ToolError(
+                f"this does not look like a complete AEMET key "
+                f"({len(value)} characters, {value.count('.')} dots). "
+                "A full key is a long string (more than 100 characters) with exactly "
+                "two dots. Nothing was stored. Copy the whole key from the email and "
+                "try again."
+            )
     secrets = read_secrets()
     secrets[args.name] = value
     write_secrets(secrets)
-    print(f"Stored {args.name} in {SECRETS_FILE}. The value was not printed.")
+    print(f"Stored {args.name} in {SECRETS_FILE}. The value was not printed ({len(value)} characters).")
     return 0
 
 
